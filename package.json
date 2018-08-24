@@ -12,9 +12,13 @@
   },
   "keywords": [
     "ghost",
-    "themes"
+    "themes",
+    "ghost-theme"
   ],
-  "author": "Belén Albeza <belen.albeza@gmail.com>",
+  "author": {
+    "name": "Belén Albeza",
+    "email": "belen.albeza@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/belen-albeza/hikari-no-ghost-theme/issues"

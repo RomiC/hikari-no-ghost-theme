@@ -5,7 +5,7 @@
 
 
 {{! The big featured header on the homepage, with the site logo }}
-<header class="main-header" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+<header class="main-header" {{#if @blog.cover_image}}style="background-image: url({{@blog.cover_image}})"{{/if}}>
     {{#if @blog.logo}}
         <p><a href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="logo" /></a></p>
     {{else}}
@@ -16,17 +16,32 @@
 {{! Comment this if you are not using static pages}}
 {{> menu}}
 
+{{#post}}
 <main>
-    {{#post}}
     <article class="{{post_class}} single">
         {{! Each post has the blog logo at the top, with a link back to the home page }}
         <header>
             <h1>{{{title}}}</h1>
         </header>
 
+        {{#if feature_image}}
+        <figure class="post-full-image" style="background-image: url({{feature_image}})">
+        </figure>
+        {{/if}}
+
         {{! Everything inside the #post tags pulls data from the post }}
         {{content}}
 
-    {{/post}}
     </article>
 </main>
+{{/post}}
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+$(function() {
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+});
+</script>
+{{/contentFor}}
