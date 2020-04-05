@@ -1,10 +1,17 @@
 {
-  "name": "hikari-no-ghost-theme",
+  "name": "hikari-no-ghost-v3-theme",
   "version": "1.1.0",
   "description": "Theme for the Ghost blogging platform",
-  "main": "Gruntfile.js",
+  "main": "README.md",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gscan --verbose -3 -z hikari-no-ghost-v3-theme.zip",
+    "postinstall": "npm run build && npm run build:archive",
+    "build": "node-sass -o assets/css assets/sass/main.sass",
+    "build:watch": "npm run build -- --watch",
+    "build:archive": "zip -r hikari-no-ghost-v3-theme.zip assets/css assets/fonts assets/js partials default.hbs index.hbs page.hbs post.hbs tag.hbs screenshot-preview.png screenshot.png README.md package.json"
+  },
+  "engines": {
+    "ghost-api": "v3"
   },
   "repository": {
     "type": "git",
@@ -24,10 +31,11 @@
     "url": "https://github.com/belen-albeza/hikari-no-ghost-theme/issues"
   },
   "homepage": "https://github.com/belen-albeza/hikari-no-ghost-theme",
-  "dependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-sass": "^0.14.0"
+  "devDependencies": {
+    "gscan": "^3.4.0",
+    "node-sass": "^4.13.1"
+  },
+  "config": {
+    "posts_per_page": 5
   }
 }
