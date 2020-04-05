@@ -4,9 +4,9 @@
     the {body} of the default.hbs template, which contains our header/footer. }}
 
 {{! The big featured header on the homepage, with the site logo and description }}
-<header class="main-header" {{#if @blog.cover_image}}style="background-image: url({{@blog.cover_image}})"{{/if}}>
-    {{#if @blog.logo}}<p><a href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="logo" /></a></p>{{/if}}
-    <h1>{{@blog.title}}<span class="subtitle">{{@blog.description}}</span></h1>
+<header class="main-header" {{#if @site.cover_image}}style="background-image: url({{@site.cover_image}})" {{/if}}>
+    {{#if @site.logo}}<p><a href="{{@site.url}}"><img src="{{@site.logo}}" alt="logo" /></a></p>{{/if}}
+    <h1>{{@site.title}}<span class="subtitle">{{@site.description}}</span></h1>
 </header>
 
 {{! Comment this if you are not using static pages }}

@@ -25,5 +25,6 @@ build/Release
 node_modules
 
 # custom ignore rules
-assets/css/sass
-
+assets/main.css
+*.zip
+.vscode
